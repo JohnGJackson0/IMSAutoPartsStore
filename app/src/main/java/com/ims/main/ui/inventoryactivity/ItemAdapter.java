@@ -1,4 +1,4 @@
-package com.ims.main.ui.mainactivity;
+package com.ims.main.ui.inventoryactivity;
 
 import android.arch.paging.PagedListAdapter;
 import android.content.Context;

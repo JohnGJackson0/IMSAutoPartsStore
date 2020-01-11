@@ -6,4 +6,16 @@
     <string name="inventory_example_name">CRC Throttle Body And Air-Intake Cleaner (12 wt. oz.)</string>
     <string name="inventory_example_quantity">55</string>
     <string name="inventory_example_supplier_number">155649</string>
+
+    <string name="button_supplier">Suppliers</string>
+    <string name="button_inventory">Inventory</string>
+
+    <string name="accessibility_supplier">Supplier</string>
+    <string name="accessibility_inventory">Inventory</string>
+    <string name="supplier_example_name">Castrol</string>
+    <string name="supplier_example_address">15564 Fake Address ln, US 41864</string>
+    <string name="supplier_example_contact">Fake Person</string>
+    <string name="supplier_example_email">IHaveFakeEmail@gmail.com</string>
+    <string name="supplier_example_phone">313-314-5554</string>
+    <string name="supplier_example_id">15564B</string>
 </resources>

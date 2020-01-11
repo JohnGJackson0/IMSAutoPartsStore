@@ -1,20 +1,18 @@
-package com.ims.main.ui.mainactivity;
+package com.ims.main.ui.inventoryactivity;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.arch.paging.LivePagedListBuilder;
 import android.arch.paging.PagedList;
-
 import com.ims.main.db.AppRepository;
 import com.ims.model.Item;
-import com.ims.model.Supplier;
 
-public class MainViewModel extends AndroidViewModel {
+public class InventoryViewModel extends AndroidViewModel {
     private LiveData<PagedList<Item>> items;
     private AppRepository mRepository;
 
-    public MainViewModel(Application application) {
+    public InventoryViewModel(Application application) {
         super(application);
         mRepository = new AppRepository(application);
     }
@@ -24,13 +22,5 @@ public class MainViewModel extends AndroidViewModel {
                 mRepository.getAllItems(), 15)
                 .build();
         return items;
-    }
-
-    protected void addItem(Item a) {
-        mRepository.insertItem(a);
-    }
-
-    protected void addSupplier(Supplier a){
-        mRepository.insertSupplier(a);
     }
 }

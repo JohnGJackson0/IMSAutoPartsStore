@@ -22,6 +22,8 @@ public class AppRepository {
 
     public DataSource.Factory getAllItems() { return mItemDao.getAllItems(); }
 
+    public DataSource.Factory<Integer, Supplier> getAllSuppliers() { return mSupplierDao.getSuppliers(); }
+
     public void insertItem(Item a) {
         Executor myExecutor = Executors.newSingleThreadExecutor();
         myExecutor.execute(() -> mItemDao.insert(a));

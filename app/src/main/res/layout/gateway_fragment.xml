@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gatewayContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageButton
+        android:id="@+id/supplier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="openSupplier"
+        android:contentDescription="@string/accessibility_supplier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/inventory"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/supplierCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_supplier"
+        app:layout_constraintEnd_toEndOf="@+id/supplier"
+        app:layout_constraintStart_toStartOf="@+id/supplier"
+        app:layout_constraintTop_toBottomOf="@+id/supplier" />
+
+    <ImageButton
+        android:id="@+id/inventory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="openInventory"
+        android:contentDescription="@string/accessibility_inventory"
+        app:layout_constraintBottom_toTopOf="@+id/inventoryCaption"
+        app:layout_constraintEnd_toStartOf="@+id/supplier"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/supplierCaption"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/inventoryCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_inventory"
+        app:layout_constraintEnd_toEndOf="@+id/inventory"
+        app:layout_constraintStart_toStartOf="@+id/inventory"
+        app:layout_constraintTop_toBottomOf="@+id/inventory" />
+
+</android.support.constraint.ConstraintLayout>
