@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">IMS Auto Parts Store</string>
+
+    <string name="welcome_screen_title">Inventory Management</string>
+
+    <string name="inventory_example_name">CRC Throttle Body And Air-Intake Cleaner (12 wt. oz.)</string>
+    <string name="inventory_example_quantity">55</string>
+    <string name="inventory_example_supplier_number">155649</string>
 </resources>
