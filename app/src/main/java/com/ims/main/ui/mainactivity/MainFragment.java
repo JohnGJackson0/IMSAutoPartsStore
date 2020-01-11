@@ -11,8 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ims.db.Item;
-import com.ims.db.Supplier;
+import com.ims.model.Item;
+import com.ims.model.Supplier;
 import com.ims.main.R;
 
 public class MainFragment extends Fragment {
@@ -32,11 +32,11 @@ public class MainFragment extends Fragment {
         mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 
         //test
-        Supplier castrol = new Supplier(255857,true,"Castrol","15556 Fake Address Ln US", "Fake Name","FakeEmail@gmail.com","9998756309");
+        Supplier castrol = new Supplier("129F",true,"Castrol","15556 Fake Address Ln US", "Fake Name","FakeEmail@gmail.com","9998756309");
         mViewModel.addSupplier(castrol);
-        Item sample = new Item(15889,255857,true,"Castrol GTX 5W-30 HP Motor Oil",15,0);
+        Item sample = new Item("12556G157","129F",true,"Castrol GTX 5W-30 HP Motor Oil",15,0);
         mViewModel.addItem(sample);
-        Item sample2 = new Item(15879848,255857,true,"Castrol GTX 10W-40 HP Motor Oil",10,0);
+        Item sample2 = new Item("12556G158","129F",true,"Castrol GTX 10W-40 HP Motor Oil",10,0);
         mViewModel.addItem(sample2);
 
         return mRoot;

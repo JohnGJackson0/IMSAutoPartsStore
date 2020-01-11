@@ -1,14 +1,16 @@
-package com.ims.db;
+package com.ims.model;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 @Entity
 public class Supplier {
+    @NonNull
     @ColumnInfo(name="supplier_id")
     @PrimaryKey
-    private long supplier_id;
+    private String supplierId;
 
     @ColumnInfo(name="is_enabled")
     private boolean isEnabled;
@@ -28,8 +30,8 @@ public class Supplier {
     @ColumnInfo(name="phone_number")
     private String phoneNumber;
 
-    public Supplier(long supplier_id, boolean isEnabled, String supplierName, String address, String contactName, String contactEmail, String phoneNumber) {
-        this.supplier_id = supplier_id;
+    public Supplier(String supplierId, boolean isEnabled, String supplierName, String address, String contactName, String contactEmail, String phoneNumber) {
+        this.supplierId = supplierId;
         this.isEnabled = isEnabled;
         this.supplierName = supplierName;
         this.address = address;
@@ -38,8 +40,8 @@ public class Supplier {
         this.phoneNumber = phoneNumber;
     }
 
-    public long getSupplier_id() {
-        return supplier_id;
+    public String getSupplierId() {
+        return supplierId;
     }
 
     public boolean isEnabled() {
@@ -64,5 +66,33 @@ public class Supplier {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public void setSupplierId(@NonNull String supplierId) {
+        this.supplierId = supplierId;
+    }
+
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
+    }
+
+    public void setSupplierName(String supplierName) {
+        this.supplierName = supplierName;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setContactName(String contactName) {
+        this.contactName = contactName;
+    }
+
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

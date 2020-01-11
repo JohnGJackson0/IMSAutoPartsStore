@@ -1,7 +1,12 @@
-package com.ims.db;
+package com.ims.main.db;
 
 import android.app.Application;
 import android.arch.paging.DataSource;
+
+import com.ims.model.Item;
+import com.ims.model.ItemDao;
+import com.ims.model.Supplier;
+import com.ims.model.SupplierDao;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;

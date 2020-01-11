@@ -6,9 +6,9 @@ import android.arch.lifecycle.LiveData;
 import android.arch.paging.LivePagedListBuilder;
 import android.arch.paging.PagedList;
 
-import com.ims.db.AppRepository;
-import com.ims.db.Item;
-import com.ims.db.Supplier;
+import com.ims.main.db.AppRepository;
+import com.ims.model.Item;
+import com.ims.model.Supplier;
 
 public class MainViewModel extends AndroidViewModel {
     private LiveData<PagedList<Item>> items;

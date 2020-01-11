@@ -1,4 +1,4 @@
-package com.ims.db;
+package com.ims.model;
 
 import android.arch.paging.DataSource;
 import android.arch.persistence.room.Dao;

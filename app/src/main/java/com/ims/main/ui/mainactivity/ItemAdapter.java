@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.ims.db.Item;
+import com.ims.model.Item;
 import com.ims.main.R;
 
 public class ItemAdapter extends PagedListAdapter<Item, ItemAdapter.ItemViewHolder> {
@@ -45,7 +45,7 @@ public class ItemAdapter extends PagedListAdapter<Item, ItemAdapter.ItemViewHold
         void bindTo(Item item) {
             mItemName.setText(item.getPartDescription());
             mItemQuantity.setText(Long.toString(item.getQuantityOnHand()));
-            mItemSupplier.setText(Long.toString(item.getSupplierId()));
+            mItemSupplier.setText(item.getSupplierId());
         }
     }
 
@@ -56,7 +56,7 @@ public class ItemAdapter extends PagedListAdapter<Item, ItemAdapter.ItemViewHold
 
                 @Override
                 public boolean areItemsTheSame(Item one, Item two) {
-                    return one.getPart_number() == two.getPart_number();
+                    return one.getPartNumber() == two.getPartNumber();
                 }
                 @Override
                 public boolean areContentsTheSame(Item one,
