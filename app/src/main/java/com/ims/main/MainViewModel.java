@@ -22,4 +22,8 @@ public class MainViewModel extends AndroidViewModel {
     protected void insertInventory(Item a) {
         mRepository.insertItem(a);
     }
+
+    protected void updateItem(Item a){
+        mRepository.updateItem(a);
+    }
 }

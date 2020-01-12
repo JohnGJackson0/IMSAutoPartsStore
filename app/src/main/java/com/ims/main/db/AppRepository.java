@@ -33,4 +33,9 @@ public class AppRepository {
         Executor myExecutor = Executors.newSingleThreadExecutor();
         myExecutor.execute(() -> mSupplierDao.insert(a));
     }
+
+    public void updateItem(Item a){
+        Executor myExecutor = Executors.newSingleThreadExecutor();
+        myExecutor.execute(() -> mItemDao.update(a));
+    }
 }

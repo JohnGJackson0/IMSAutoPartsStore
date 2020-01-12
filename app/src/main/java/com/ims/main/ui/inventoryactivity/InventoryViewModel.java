@@ -23,4 +23,8 @@ public class InventoryViewModel extends AndroidViewModel {
                 .build();
         return items;
     }
+
+    protected void updateItem(Item a){
+        mRepository.updateItem(a);
+    }
 }

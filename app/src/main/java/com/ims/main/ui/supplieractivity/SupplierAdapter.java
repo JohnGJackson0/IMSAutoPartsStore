@@ -39,7 +39,7 @@ public class SupplierAdapter extends PagedListAdapter<Supplier, SupplierAdapter.
 
         protected SupplierViewHolder(View supplier) {
             super(supplier);
-            mSupplierName = supplier.findViewById(R.id.name);
+            mSupplierName = supplier.findViewById(R.id.partDescription);
             mAddress = supplier.findViewById(R.id.address);
             mContact = supplier.findViewById(R.id.contact);
             mEmail = supplier.findViewById(R.id.email);

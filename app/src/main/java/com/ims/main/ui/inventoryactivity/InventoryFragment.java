@@ -36,8 +36,9 @@ public class InventoryFragment extends Fragment {
         RecyclerView recyclerView = mRoot.findViewById(R.id.items);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mRoot.getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
-        ItemAdapter itemAdapter = new ItemAdapter();
+        ItemAdapter itemAdapter = new ItemAdapter(mRoot.getContext());
         mViewModel.getAllItems().observe(this, itemAdapter::submitList);
         recyclerView.setAdapter(itemAdapter);
     }
+
 }

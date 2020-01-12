@@ -6,6 +6,7 @@ import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 
+import com.ims.main.db.converters.BigDecimalConverter;
 import com.ims.model.Item;
 import com.ims.model.ItemDao;
 import com.ims.model.Supplier;
@@ -13,7 +14,7 @@ import com.ims.model.SupplierDao;
 import com.ims.main.db.converters.DateConverter;
 
 @Database(entities = {Item.class, Supplier.class}, version = 1)
-@TypeConverters({DateConverter.class})
+@TypeConverters({DateConverter.class, BigDecimalConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE;
     public abstract ItemDao itemDao();

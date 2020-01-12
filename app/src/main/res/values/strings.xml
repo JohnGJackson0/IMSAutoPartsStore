@@ -3,19 +3,49 @@
 
     <string name="welcome_screen_title">Inventory Management</string>
 
-    <string name="inventory_example_name">CRC Throttle Body And Air-Intake Cleaner (12 wt. oz.)</string>
-    <string name="inventory_example_quantity">55</string>
-    <string name="inventory_example_supplier_number">155649</string>
-
     <string name="button_supplier">Suppliers</string>
     <string name="button_inventory">Inventory</string>
 
     <string name="accessibility_supplier">Supplier</string>
     <string name="accessibility_inventory">Inventory</string>
-    <string name="supplier_example_name">Castrol</string>
-    <string name="supplier_example_address">15564 Fake Address ln, US 41864</string>
-    <string name="supplier_example_contact">Fake Person</string>
-    <string name="supplier_example_email">IHaveFakeEmail@gmail.com</string>
-    <string name="supplier_example_phone">313-314-5554</string>
-    <string name="supplier_example_id">15564B</string>
+
+    <string name="supplier_name">Castrol</string>
+    <string name="supplier_address">15564 Fake Address ln, US 41864</string>
+    <string name="supplier_contact">Fake Person</string>
+    <string name="supplier_email">IHaveFakeEmail@gmail.com</string>
+    <string name="supplier_phone">313-314-5554</string>
+    <string name="supplier_id">15564B</string>
+
+    <string name="error_blank">Order QTY blank</string>
+
+    /*
+     * Inventory Control Strings for an Item RV
+     */
+    <string name="inventory_part_number">Part Number: 1225G1550</string>
+    <string name="inventory_name">CRC Throttle Body And Air-Intake Cleaner (12 wt. oz.)</string>
+    <string name="inventory_quantity">Sales Floor: 55</string>
+    <string name="inventory_in_back">In Back: 0</string>
+    <string name="inventory_supplier_number">Primary Supplier: 155649</string>
+    <string name="inventory_max_control">Max Control: 90</string>
+    <string name="inventory_enabled">Active</string>
+    <string name="inventory_sales_cost">Sales cost: $15.25</string>
+    <string name="inventory_pending">pending: 15</string>
+
+    <string name="order_hint">Order amount</string>
+    <string name="order_button">Submit Order Request</string>
+
+    <string name="prefix_part_number">Part Number: </string>
+    <string name="prefix_inventory_quantity">Sales Floor: </string>
+    <string name="prefix_inventory_in_back">In Back: </string>
+    <string name="prefix_inventory_supplier_number">Primary Supplier: </string>
+    <string name="prefix_inventory_max_control">Max Control: </string>
+    <string name="prefix_inventory_sales_cost">Sales cost: </string>
+    <string name="prefix_inventory_pending">pending: </string>
+
+    <string name="inventory_inactive">Inactive</string>
+    <string name="order_submited">Pending Order Submitted</string>
+    <string name="unknown_error">Something went wrong - clear app data</string>
+    <string name="pending_order_success">New Pending Order Created</string>
+
+
 </resources>

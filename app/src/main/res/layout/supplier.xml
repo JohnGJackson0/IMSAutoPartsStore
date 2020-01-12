@@ -5,10 +5,10 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/partDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/supplier_example_name"
+        android:text="@string/supplier_name"
         app:layout_constraintBottom_toTopOf="@+id/phone"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -16,7 +16,7 @@
         android:id="@+id/id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/supplier_example_id"
+        android:text="@string/supplier_id"
         app:layout_constraintBottom_toTopOf="@+id/address"
         app:layout_constraintTop_toBottomOf="@+id/phone" />
 
@@ -24,7 +24,7 @@
         android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/supplier_example_address"
+        android:text="@string/supplier_address"
         app:layout_constraintBottom_toTopOf="@+id/contact"
         app:layout_constraintTop_toBottomOf="@+id/id" />
 
@@ -32,7 +32,7 @@
         android:id="@+id/contact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/supplier_example_contact"
+        android:text="@string/supplier_contact"
         app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintTop_toBottomOf="@+id/address" />
 
@@ -40,7 +40,7 @@
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/supplier_example_email"
+        android:text="@string/supplier_email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contact" />
 
@@ -48,8 +48,8 @@
         android:id="@+id/phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/supplier_example_phone"
+        android:text="@string/supplier_phone"
         app:layout_constraintBottom_toTopOf="@+id/id"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/partDescription" />
 
 </android.support.constraint.ConstraintLayout>
