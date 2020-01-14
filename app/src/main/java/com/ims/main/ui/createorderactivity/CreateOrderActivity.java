@@ -8,9 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import com.ims.main.R;
 import com.ims.main.ui.createorderactivity.orderapproval.ApprovalCallback;
 import com.ims.main.ui.createorderactivity.orderapproval.ApprovalFragment;
+import com.ims.main.ui.createorderactivity.orderapproval.RejectionCallback;
 import com.ims.model.Item;
 
-public class CreateOrderActivity extends AppCompatActivity implements ApprovalCallback {
+public class CreateOrderActivity extends AppCompatActivity implements ApprovalCallback, RejectionCallback {
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = item -> {
@@ -50,4 +51,9 @@ public class CreateOrderActivity extends AppCompatActivity implements ApprovalCa
         ViewModelProviders.of(this).get(CreateOrderViewModel.class).updateItem(a);
     }
 
+    @Override
+    public void reject(Item a) {
+        a.setPendingOrder(0);
+        ViewModelProviders.of(this).get(CreateOrderViewModel.class).updateItem(a);
+    }
 }

@@ -50,11 +50,11 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="approval">Approve</string>
+    <string name="review">Reviews</string>
     <string name="order">Order</string>
     <string name="order_finalize">Finalize</string>
     <string name="accessibility_orders">My Orders</string>
-    <string name="button_orders">Create Orders</string>
+    <string name="button_orders">Manage Orders</string>
     <string name="approve_order">Approve</string>
     <string name="approve_pending">Approve</string>
     <string name="reject_pending">Reject</string>

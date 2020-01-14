@@ -17,6 +17,7 @@ import com.ims.model.Item;
 public class OrderApprovalAdapter extends PagedListAdapter<Item, OrderApprovalAdapter.OrderApprovalViewHolder> {
     private Context mContext;
     private ApprovalCallback mApprovalCallback;
+    private RejectionCallback mRejectionCallback;
 
     @NonNull
     @Override
@@ -44,6 +45,7 @@ public class OrderApprovalAdapter extends PagedListAdapter<Item, OrderApprovalAd
         TextView mSalesPrice;
         TextView mPending;
         Button mApproval;
+        Button mRejection;
 
         protected OrderApprovalViewHolder(View item) {
             super(item);
@@ -57,6 +59,7 @@ public class OrderApprovalAdapter extends PagedListAdapter<Item, OrderApprovalAd
             mSalesPrice = item.findViewById(R.id.sales);
             mPending = item.findViewById(R.id.pending);
             mApproval = item.findViewById(R.id.approve);
+            mRejection = item.findViewById(R.id.reject);
         }
 
         void bindTo(Item item) {
@@ -78,6 +81,10 @@ public class OrderApprovalAdapter extends PagedListAdapter<Item, OrderApprovalAd
             mApproval.setOnClickListener(v -> {
                 mApprovalCallback.approve(item);
             });
+
+            mRejection.setOnClickListener(v-> {
+                mRejectionCallback.reject(item);
+            });
         }
     }
 
@@ -85,6 +92,7 @@ public class OrderApprovalAdapter extends PagedListAdapter<Item, OrderApprovalAd
         super(DIFF_CALLBACK);
         mContext = context;
         mApprovalCallback = (ApprovalCallback) mContext;
+        mRejectionCallback = (RejectionCallback) mContext;
     }
 
     private static DiffUtil.ItemCallback<Item> DIFF_CALLBACK =
