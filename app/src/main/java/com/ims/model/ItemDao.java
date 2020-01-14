@@ -15,6 +15,9 @@ public interface ItemDao {
     @Query("SELECT * FROM ITEM ORDER BY PART_NUMBER")
     DataSource.Factory<Integer,Item> getAllItems();
 
+    @Query("SELECT * FROM ITEM WHERE pending_order_quantity > 0")
+    DataSource.Factory<Integer,Item> getPendingOrders();
+
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void update(Item item);
 }

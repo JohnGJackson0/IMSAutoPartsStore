@@ -1,6 +1,7 @@
 package com.ims.main;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.ims.main.ui.createorderactivity.CreateOrderActivity;
 import com.ims.main.ui.gatewayactivity.GatewayFragment;
 import com.ims.main.ui.inventoryactivity.ErrorCallback;
 import com.ims.main.ui.inventoryactivity.InventoryFragment;
@@ -55,6 +57,11 @@ public class MainActivity extends AppCompatActivity implements ErrorCallback, Up
         replaceFragment(InventoryFragment.newInstance());
     }
 
+    public void openOrders(View view) {
+        Intent intent = new Intent(MainActivity.this, CreateOrderActivity.class);
+        MainActivity.this.startActivity(intent);
+    }
+
     private void replaceFragment (Fragment fragment){
         if (!isInBackStack(fragment)){
             mFragmentTransaction.beginTransaction()
@@ -86,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements ErrorCallback, Up
     public void updateItem(Item a, String req) {
         try {
             if(Validator.isNumeric(req)) {
-                a.setPendingQuanity(Long.parseLong(req));
+                a.setPendingOrder(Long.parseLong(req));
                 mViewModel.updateItem(a);
                 createToast(getResources().getString(R.string.pending_order_success));
             }

@@ -10,10 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.ims.main.MainActivity"
+            android:name=".ui.createorderactivity.CreateOrderActivity"
+            android:label="@string/title_activity_create_order"></activity>
+        <activity
+            android:name=".MainActivity"
             android:label="@string/welcome_screen_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

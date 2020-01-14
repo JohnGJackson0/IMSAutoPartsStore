@@ -1,4 +1,4 @@
-package com.ims.main.ui.inventoryactivity;
+package com.ims.main.ui.createorderactivity.orderapproval;
 
 import android.arch.paging.PagedListAdapter;
 import android.content.Context;
@@ -9,33 +9,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.ims.main.R;
 import com.ims.model.Item;
 
-public class ItemAdapter extends PagedListAdapter<Item, ItemAdapter.ItemViewHolder> {
+public class OrderApprovalAdapter extends PagedListAdapter<Item, OrderApprovalAdapter.OrderApprovalViewHolder> {
     private Context mContext;
-    private UpdateItemPendingQuantityCallback mItemCallback;
-    private ErrorCallback mErrorCallback;
+    private ApprovalCallback mApprovalCallback;
 
     @NonNull
     @Override
-    public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType){
-        int layoutIdentifier = R.layout.item;
+    public OrderApprovalViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType){
+        int layoutIdentifier = R.layout.pending_order;
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(layoutIdentifier, viewGroup, false);
-        return new ItemViewHolder(view);
+        return new OrderApprovalViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemViewHolder itemViewHolder, int position) {
-        itemViewHolder.bindTo(getItem(position));
+    public void onBindViewHolder(@NonNull OrderApprovalViewHolder orderApprovalViewHolder, int position) {
+        orderApprovalViewHolder.bindTo(getItem(position));
     }
 
-    protected class ItemViewHolder extends RecyclerView.ViewHolder {
+    protected class OrderApprovalViewHolder extends RecyclerView.ViewHolder {
         TextView mPartNumber;
         TextView mItemName;
         TextView mMaxControl;
@@ -43,13 +41,11 @@ public class ItemAdapter extends PagedListAdapter<Item, ItemAdapter.ItemViewHold
         TextView mOnHand;
         TextView mInBack;
         TextView mSupplier;
-        TextView mApproved;
         TextView mSalesPrice;
         TextView mPending;
-        EditText mPendingOrderQty;
-        Button mSubmitPendingOrderRequest;
+        Button mApproval;
 
-        protected ItemViewHolder(View item) {
+        protected OrderApprovalViewHolder(View item) {
             super(item);
             mPartNumber= item.findViewById(R.id.partNumber);
             mItemName = item.findViewById(R.id.partDescription);
@@ -58,15 +54,14 @@ public class ItemAdapter extends PagedListAdapter<Item, ItemAdapter.ItemViewHold
             mOnHand = item.findViewById(R.id.quantityOnhand);
             mInBack = item.findViewById(R.id.quantityInBack);
             mSupplier = item.findViewById(R.id.supplier);
-            mApproved = item.findViewById(R.id.approved);
             mSalesPrice = item.findViewById(R.id.sales);
             mPending = item.findViewById(R.id.pending);
-            mPendingOrderQty = item.findViewById(R.id.orderAmount);
-            mSubmitPendingOrderRequest =  item.findViewById(R.id.order);
+            mApproval = item.findViewById(R.id.approve);
         }
 
         void bindTo(Item item) {
             mPartNumber.setText(mContext.getResources().getString(R.string.prefix_part_number).concat(item.getPartNumber()));
+
             mItemName.setText(item.getPartDescription());
             mMaxControl.setText(mContext.getResources().getString(R.string.prefix_inventory_max_control).concat(Long.toString(item.getInventoryMax())));
             if (!item.isEnabled()){
@@ -78,27 +73,18 @@ public class ItemAdapter extends PagedListAdapter<Item, ItemAdapter.ItemViewHold
             mSupplier.setText(mContext.getResources().getString(R.string.prefix_inventory_supplier_number).concat(item.getSupplierId()));
             mSalesPrice.setText(mContext.getResources().getString(R.string.prefix_inventory_sales_cost).concat(item.getSalesCost().toString()));
             mPending.setText(mContext.getResources().getString(R.string.prefix_inventory_pending).concat(Long.toString(item.getPendingOrder())));
-            mApproved.setText(mContext.getResources().getString(R.string.prefix_inventory_approved).concat(Long.toString(item.getApprovedOrder())));
 
-            mSubmitPendingOrderRequest.setOnClickListener(v -> {
-                try {
-                    if("".equals(mPendingOrderQty.getText().toString())) {
-                        mErrorCallback.blankError();
-                    } else {
-                        mItemCallback.updateItem(item, mPendingOrderQty.getText().toString());
-                    }
-                } catch (Exception e) {
-                    mErrorCallback.blankError();
-                }
+
+            mApproval.setOnClickListener(v -> {
+                mApprovalCallback.approve(item);
             });
         }
     }
 
-    protected ItemAdapter(Context context) {
+    protected OrderApprovalAdapter(Context context) {
         super(DIFF_CALLBACK);
         mContext = context;
-        mItemCallback = (UpdateItemPendingQuantityCallback) mContext;
-        mErrorCallback = (ErrorCallback) mContext;
+        mApprovalCallback = (ApprovalCallback) mContext;
     }
 
     private static DiffUtil.ItemCallback<Item> DIFF_CALLBACK =
@@ -111,7 +97,6 @@ public class ItemAdapter extends PagedListAdapter<Item, ItemAdapter.ItemViewHold
                 @Override
                 public boolean areContentsTheSame(Item one,
                                                   Item two) {
-                    //todo fix object equality from reference equality
                     return one.equals(two);
                 }
             };

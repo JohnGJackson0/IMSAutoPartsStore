@@ -3,9 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:background="@color/subtle">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/partNumber"
@@ -33,10 +31,10 @@
 
     <TextView
         android:id="@+id/isEnabled"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/inventory_enabled"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/quantityOnhand"
         app:layout_constraintTop_toBottomOf="@+id/maxControl" />
 
@@ -69,16 +67,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/inventory_sales_cost"
-        app:layout_constraintBottom_toTopOf="@+id/approved"
-        app:layout_constraintTop_toBottomOf="@+id/supplier" />
-
-    <TextView
-        android:id="@+id/approved"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/approved"
         app:layout_constraintBottom_toTopOf="@+id/pending"
-        app:layout_constraintTop_toBottomOf="@+id/sales"  />
+        app:layout_constraintTop_toBottomOf="@+id/supplier" />
 
     <TextView
         android:id="@+id/pending"
@@ -86,34 +76,29 @@
         android:layout_height="wrap_content"
         android:text="@string/inventory_pending"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/approved" />
+        app:layout_constraintTop_toBottomOf="@+id/sales" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/approve"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pending">
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/approve_pending"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/reject"
+        app:layout_constraintTop_toBottomOf="@+id/pending" />
 
-        <EditText
-            android:id="@+id/orderAmount"
-            android:layout_width="0dp"
-            android:inputType="number"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:hint="@string/order_hint" />
-
-        <Button
-            android:id="@+id/order"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/order_button" />
-    </LinearLayout>
-
-
+    <Button
+        android:id="@+id/reject"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/reject_pending"
+        app:layout_constraintEnd_toStartOf="@+id/approve"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pending" />
 </android.support.constraint.ConstraintLayout>

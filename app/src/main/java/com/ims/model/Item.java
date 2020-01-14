@@ -77,18 +77,29 @@ public class Item {
     @ColumnInfo(name="quantity_for_next_future_order_arrival")
     private long quantityForNextFutureOrderArrival;
 
-    @ColumnInfo(name="pending_quantity_order")
-    private long pendingQuanity;
+    @ColumnInfo(name="pending_order_quantity")
+    private long pendingOrder;
+
+    @ColumnInfo(name="approved_order_quantity")
+    private long approvedOrder;
 
     @ColumnInfo(name="sales_cost")
     private BigDecimal salesCost;
 
-    public long getPendingQuanity() {
-        return pendingQuanity;
+    public long getApprovedOrder() {
+        return approvedOrder;
     }
 
-    public void setPendingQuanity(long pendingQuanity) {
-        this.pendingQuanity = pendingQuanity;
+    public void setApprovedOrder(long approvedOrder) {
+        this.approvedOrder = approvedOrder;
+    }
+
+    public long getPendingOrder() {
+        return pendingOrder;
+    }
+
+    public void setPendingOrder(long pendingOrder) {
+        this.pendingOrder = pendingOrder;
     }
 
     public BigDecimal getSalesCost() {

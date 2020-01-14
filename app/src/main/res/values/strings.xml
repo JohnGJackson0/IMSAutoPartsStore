@@ -4,7 +4,7 @@
     <string name="welcome_screen_title">Inventory Management</string>
 
     <string name="button_supplier">Suppliers</string>
-    <string name="button_inventory">Inventory</string>
+    <string name="button_inventory">My Inventory</string>
 
     <string name="accessibility_supplier">Supplier</string>
     <string name="accessibility_inventory">Inventory</string>
@@ -19,8 +19,8 @@
     <string name="error_blank">Order QTY blank</string>
 
     /*
-     * Inventory Control Strings for an Item RV
-     */
+    * Inventory Control Strings for an Item RV
+    */
     <string name="inventory_part_number">Part Number: 1225G1550</string>
     <string name="inventory_name">CRC Throttle Body And Air-Intake Cleaner (12 wt. oz.)</string>
     <string name="inventory_quantity">Sales Floor: 55</string>
@@ -46,6 +46,21 @@
     <string name="order_submited">Pending Order Submitted</string>
     <string name="unknown_error">Something went wrong - clear app data</string>
     <string name="pending_order_success">New Pending Order Created</string>
+    <string name="title_activity_create_order">Manage My Ordering</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="approval">Approve</string>
+    <string name="order">Order</string>
+    <string name="order_finalize">Finalize</string>
+    <string name="accessibility_orders">My Orders</string>
+    <string name="button_orders">Create Orders</string>
+    <string name="approve_order">Approve</string>
+    <string name="approve_pending">Approve</string>
+    <string name="reject_pending">Reject</string>
+    <string name="approved">Approved Order: 15</string>
+    <string name="prefix_inventory_approved">Approved-Order Amount:</string>
+    <string name="instruction_ordering">Approve orders below. If there is none to approve then go to My Inventory and create pending orders.</string>
 
 
 </resources>

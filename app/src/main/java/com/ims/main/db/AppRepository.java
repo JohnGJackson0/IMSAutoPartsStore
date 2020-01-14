@@ -24,6 +24,8 @@ public class AppRepository {
 
     public DataSource.Factory<Integer, Supplier> getAllSuppliers() { return mSupplierDao.getSuppliers(); }
 
+    public DataSource.Factory<Integer,Item> getPendingOrders() { return mItemDao.getPendingOrders(); }
+
     public void insertItem(Item a) {
         Executor myExecutor = Executors.newSingleThreadExecutor();
         myExecutor.execute(() -> mItemDao.insert(a));
