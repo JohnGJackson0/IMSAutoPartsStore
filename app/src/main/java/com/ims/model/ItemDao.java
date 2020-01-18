@@ -18,6 +18,9 @@ public interface ItemDao {
     @Query("SELECT * FROM ITEM WHERE pending_order_quantity > 0")
     DataSource.Factory<Integer,Item> getPendingOrders();
 
+    @Query("SELECT * FROM ITEM WHERE approved_order_quantity > 0")
+    DataSource.Factory<Integer,Item>  getApprovedItems();
+
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void update(Item item);
 }

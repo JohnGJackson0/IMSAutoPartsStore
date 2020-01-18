@@ -197,4 +197,9 @@ public class Item {
     public void setInventoryMin(long inventoryMin) {
         this.inventoryMin = inventoryMin;
     }
+
+    @Override
+    public String toString(){
+        return partNumber + partDescription;
+    }
 }

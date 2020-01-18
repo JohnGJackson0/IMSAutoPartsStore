@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
-import com.ims.main.ui.createorderactivity.CreateOrderActivity;
+import com.ims.main.ui.createorderactivity.ManageOrdersActivity;
 import com.ims.main.ui.gatewayactivity.GatewayFragment;
 import com.ims.main.ui.inventoryactivity.ErrorCallback;
 import com.ims.main.ui.inventoryactivity.InventoryFragment;
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements ErrorCallback, Up
     }
 
     public void openOrders(View view) {
-        Intent intent = new Intent(MainActivity.this, CreateOrderActivity.class);
+        Intent intent = new Intent(MainActivity.this, ManageOrdersActivity.class);
         MainActivity.this.startActivity(intent);
     }
 

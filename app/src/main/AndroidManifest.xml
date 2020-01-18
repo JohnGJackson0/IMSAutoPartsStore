@@ -10,8 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.createorderactivity.CreateOrderActivity"
+            android:name=".ui.createorderactivity.ManageOrdersActivity"
             android:label="@string/title_activity_create_order"></activity>
+        <activity
+            android:name=".ui.createorderactivity.createorder.selectapprovedinventory.SelectApprovalInventoryActivity"
+            android:label="@string/title_activity_select_approved"></activity>
+        <activity
+            android:name=".ui.createorderactivity.createorder.selectsupplier.SelectSupplierActivity"
+            android:label="@string/title_activity_select_supplier"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/welcome_screen_title">

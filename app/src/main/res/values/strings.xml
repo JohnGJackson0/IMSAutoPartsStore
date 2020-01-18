@@ -61,6 +61,31 @@
     <string name="approved">Approved Order: 15</string>
     <string name="prefix_inventory_approved">Approved-Order Amount:</string>
     <string name="instruction_ordering">Approve orders below. If there is none to approve then go to My Inventory and create pending orders.</string>
-
-
+    <string name="item_info">Part Info</string>
+    <string name="order_number_generate_button">Generate New Order Number</string>
+    <string name="create_new_order">Create New Order</string>
+    <string name="hint_comment">Comment</string>
+    <string name="inventory_item">Select Inventory Item</string>
+    <string name="supplier_info">Select Supplier Info</string>
+    <string name="add_inventory_item">Add Inventory Item</string>
+    <string name="extended_amount">Add Extended Amount and Quantity</string>
+    <string name="add_to_order">Add To Order</string>
+    <string name="end_order">Send To Finalize Order</string>
+    <string name="generated_order_number">Generated Order Number:154679</string>
+    <string name="prefix_generated_order_number">Generated Order Number:</string>
+    <string name="error_order_number_generation">Order Number Generation Failure - Please Consult Admin</string>
+    <string name="directions_select_supplier">Select Supplier For Order</string>
+    <string name="button_select_supplier">Select Supplier For Order</string>
+    <string name="open_supplier_selector">Select Supplier For Order</string>
+    <string name="title_activity_select_supplier">Select Supplier</string>
+    <string name="supplier_added_to_order">Supplier added to order</string>
+    <string name="prefix_supplier_order">Supplier for Order:</string>
+    <string name="select_inventory">Add To Order</string>
+    <string name="title_activity_select_approved">Select To Add To Order</string>
+    <string name="added_to_order">Added Item To Order</string>
+    <string name="quantity_to_order">Enter Quantity To Order</string>
+    <string name="extended_cost">Enter Extended Line Cost</string>
+    <string name="order_number_example">Order: </string>
+    <string name="order_number_prefix">Order: </string>
+    <string name="error_supplier">Error with Supplier Consult Admin</string>
 </resources>

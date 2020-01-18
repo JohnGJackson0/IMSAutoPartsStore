@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/generatedOrderNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/generated_order_number"
+        app:layout_constraintBottom_toTopOf="@+id/supplierInfoLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/supplierInfoLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/supplier_info"
+        app:layout_constraintBottom_toTopOf="@+id/selectSupplierButton"
+        app:layout_constraintTop_toBottomOf="@+id/generatedOrderNumber" />
+
+    <Button
+        android:id="@+id/selectSupplierButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/open_supplier_selector"
+        app:layout_constraintBottom_toTopOf="@+id/addInventoryLabel"
+        app:layout_constraintTop_toBottomOf="@+id/supplierInfoLabel">
+    </Button>
+    <TextView
+        android:id="@+id/addInventoryLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_inventory_item"
+        app:layout_constraintBottom_toTopOf="@+id/addToOrder"
+        app:layout_constraintTop_toBottomOf="@+id/selectSupplierButton" />
+
+    <Button
+        android:id="@+id/addToOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_to_order"
+        app:layout_constraintBottom_toTopOf="@+id/finalize"
+        app:layout_constraintTop_toBottomOf="@+id/addInventoryLabel" />
+
+    <Button
+        android:id="@+id/finalize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/end_order"
+        app:layout_constraintBottom_toTopOf="@+id/addExtendedAmountLabel"
+        app:layout_constraintTop_toBottomOf="@+id/addToOrder" />
+
+    <TextView
+        android:id="@+id/addExtendedAmountLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/extended_amount"
+        app:layout_constraintBottom_toTopOf="@+id/addedToOrderRv"
+        app:layout_constraintTop_toBottomOf="@+id/finalize" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/addedToOrderRv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/finalize" />
+
+</android.support.constraint.ConstraintLayout>

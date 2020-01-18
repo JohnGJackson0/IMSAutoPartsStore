@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/partNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/inventory_part_number"
+        app:layout_constraintBottom_toTopOf="@+id/partDescription"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/partDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/inventory_name"
+        app:layout_constraintBottom_toTopOf="@+id/maxControl"
+        app:layout_constraintTop_toBottomOf="@+id/partNumber" />
+
+    <TextView
+        android:id="@+id/maxControl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/inventory_max_control"
+        app:layout_constraintBottom_toTopOf="@+id/isEnabled"
+        app:layout_constraintTop_toBottomOf="@+id/partDescription" />
+
+    <TextView
+        android:id="@+id/isEnabled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/inventory_enabled"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/quantityOnhand"
+        app:layout_constraintTop_toBottomOf="@+id/maxControl" />
+
+    <TextView
+        android:id="@+id/quantityOnhand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/inventory_quantity"
+        app:layout_constraintBottom_toTopOf="@+id/quantityInBack"
+        app:layout_constraintTop_toBottomOf="@+id/isEnabled" />
+
+    <TextView
+        android:id="@+id/quantityInBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/inventory_in_back"
+        app:layout_constraintBottom_toTopOf="@+id/supplier"
+        app:layout_constraintTop_toBottomOf="@+id/quantityOnhand" />
+
+    <TextView
+        android:id="@+id/supplier"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/inventory_supplier_number"
+        app:layout_constraintBottom_toTopOf="@+id/sales"
+        app:layout_constraintTop_toBottomOf="@+id/quantityInBack" />
+
+    <TextView
+        android:id="@+id/sales"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/inventory_sales_cost"
+        app:layout_constraintBottom_toTopOf="@+id/approved"
+        app:layout_constraintTop_toBottomOf="@+id/supplier" />
+
+    <TextView
+        android:id="@+id/approved"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/approved"
+        app:layout_constraintBottom_toTopOf="@+id/pending"
+        app:layout_constraintTop_toBottomOf="@+id/sales" />
+
+    <TextView
+        android:id="@+id/pending"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/inventory_pending"
+        app:layout_constraintBottom_toTopOf="@+id/selectInventoryButton"
+        app:layout_constraintTop_toBottomOf="@+id/approved" />
+
+    <Button
+        android:id="@+id/selectInventoryButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_inventory"
+        app:layout_constraintTop_toBottomOf="@+id/pending" />
+</android.support.constraint.ConstraintLayout>
