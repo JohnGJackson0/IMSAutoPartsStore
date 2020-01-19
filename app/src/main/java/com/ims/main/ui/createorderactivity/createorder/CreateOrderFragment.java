@@ -1,21 +1,22 @@
 package com.ims.main.ui.createorderactivity.createorder;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ims.main.R;
 import com.ims.main.ui.createorderactivity.createorder.selectapprovedinventory.SelectApprovalInventoryActivity;
@@ -31,6 +32,7 @@ public class CreateOrderFragment extends Fragment {
     private Button mFinalizeOrder;
     PendingItemOnOrderAdapter mPendingItemOnOrderAdapter;
     private TextView mSelectSupplierInfo;
+    private Order mNewestOrder;
 
     public static CreateOrderFragment newInstance() {
         return new CreateOrderFragment();
@@ -40,7 +42,7 @@ public class CreateOrderFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        mRoot = inflater.inflate(R.layout.create_order, container, false);
+        mRoot = inflater.inflate(R.layout.create_order_fragment, container, false);
         mViewModel = ViewModelProviders.of(this).get(CreateOrderViewModel.class);
         initializeAutomaticOrderGeneration();
 
@@ -51,10 +53,16 @@ public class CreateOrderFragment extends Fragment {
 
         mFinalizeOrder.setOnClickListener(v->{
             updateRoom();
-            //todo !important validate input working on now
+
+
+            //todo validate supplier
             mViewModel.setNewestOrderToFinalized();
             mViewModel.getNewestOrder().removeObservers(this);
             refresh();
+        });
+
+        mViewModel.getNewestOrder().observe(this, order -> {
+            mNewestOrder = order;
         });
 
         //todo add to order should have a validation table if the supplier makes the item or not

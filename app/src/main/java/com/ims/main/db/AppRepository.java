@@ -1,14 +1,17 @@
 package com.ims.main.db;
 
 import android.app.Application;
-import android.arch.lifecycle.LiveData;
-import android.arch.paging.DataSource;
+
+import androidx.lifecycle.LiveData;
+import androidx.paging.DataSource;
 
 import com.ims.model.Item;
 import com.ims.model.ItemDao;
 import com.ims.model.Order;
 import com.ims.model.OrderDao;
 import com.ims.model.OrderInventory;
+import com.ims.model.OrderInventoryAndItemInfo;
+import com.ims.model.OrderInventoryAndItemInfoDao;
 import com.ims.model.OrderInventoryDao;
 import com.ims.model.Supplier;
 import com.ims.model.SupplierDao;
@@ -22,12 +25,14 @@ public class AppRepository {
     private SupplierDao mSupplierDao;
     private OrderDao mOrderDao;
     private OrderInventoryDao mOrderInventoryDao;
+    private OrderInventoryAndItemInfoDao mOrderInventoryAndItemInfoDao;
 
     public AppRepository (Application app){
         mItemDao = AppDatabase.getAppDatabase(app).itemDao();
         mSupplierDao = AppDatabase.getAppDatabase(app).supplierDao();
         mOrderDao = AppDatabase.getAppDatabase(app).orderDao();
         mOrderInventoryDao = AppDatabase.getAppDatabase(app).orderInventoryDao();
+        mOrderInventoryAndItemInfoDao = AppDatabase.getAppDatabase(app).orderInventoryAndItemInfoDao();
     }
 
     public DataSource.Factory getAllItems() { return mItemDao.getAllItems(); }
@@ -38,8 +43,19 @@ public class AppRepository {
 
     public DataSource.Factory<Integer, OrderInventory> getPendingInventoryOrders() {return mOrderInventoryDao.getPendingInventoryOrders();}
 
+    public DataSource.Factory<Integer, OrderInventoryAndItemInfo> getOrderInventoryAndItemData(Long orderNumber){
+        return mOrderInventoryAndItemInfoDao.getItemAndItemInfoFromOrderPaged(orderNumber);
+    }
     public DataSource.Factory<Integer,Item> getApprovedItems(){
         return mItemDao.getApprovedItems();
+    }
+    public DataSource.Factory getAllOrdersInFinalizationState() {
+        return mOrderDao.getEligibleOrdersForFinalization();
+    }
+
+    public void updateItems(List<Item> updateList) {
+        Executor myExecutor = Executors.newSingleThreadExecutor();
+        myExecutor.execute(() -> mItemDao.updateItems(updateList));
     }
 
     public void insertItem(Item a) {
@@ -64,7 +80,7 @@ public class AppRepository {
 
     public void insertOrderInventories(List<OrderInventory> a){
         Executor myExecutor = Executors.newSingleThreadExecutor();
-        myExecutor.execute(() -> mOrderInventoryDao.insertMulitple(a));
+        myExecutor.execute(() -> mOrderInventoryDao.insertMultiple(a));
     }
 
     public void updateItem(Item a){
@@ -82,6 +98,10 @@ public class AppRepository {
         return mOrderDao.countPendingOrders();
     }
 
+    public LiveData<Long> getCurrentFinalizationOrderNumber() {
+        return mOrderDao.getCurrentFinalizationOrderNumber();
+    }
+
     public void updateOrder(Order a) {
         Executor myExecutor = Executors.newSingleThreadExecutor();
         myExecutor.execute(() -> mOrderDao.update(a));
@@ -91,4 +111,16 @@ public class AppRepository {
         return mOrderDao.getNewestOrder();
     }
 
+
+    public LiveData<Order> getCurrentFinalizationOrder() {
+        return mOrderDao.getCurrentFinalizationOrder();
+    }
+
+    public void deleteOrder(Order order) {
+        mOrderDao.deleteOrder(order);
+    }
+
+    public void removeAllFinalizationOrdersWhereNot(Long orderNumber) {
+        mOrderDao.removeAllRecordsFromFinalizationWhereNot(orderNumber);
+    }
 }

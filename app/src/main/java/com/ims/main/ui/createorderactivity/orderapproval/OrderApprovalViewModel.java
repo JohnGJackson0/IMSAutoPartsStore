@@ -1,10 +1,10 @@
 package com.ims.main.ui.createorderactivity.orderapproval;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.LiveData;
-import android.arch.paging.LivePagedListBuilder;
-import android.arch.paging.PagedList;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.paging.LivePagedListBuilder;
+import androidx.paging.PagedList;
 
 import com.ims.main.db.AppRepository;
 import com.ims.model.Item;

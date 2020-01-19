@@ -9,15 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.createorderactivity.orderfinalization.selectorder.SelectOrderActivity"
+            android:label="@string/title_activity_select_finalize_order"></activity>
         <activity
             android:name=".ui.createorderactivity.ManageOrdersActivity"
-            android:label="@string/title_activity_create_order"></activity>
+            android:label="@string/title_activity_create_order" />
         <activity
             android:name=".ui.createorderactivity.createorder.selectapprovedinventory.SelectApprovalInventoryActivity"
-            android:label="@string/title_activity_select_approved"></activity>
+            android:label="@string/title_activity_select_approved" />
         <activity
             android:name=".ui.createorderactivity.createorder.selectsupplier.SelectSupplierActivity"
-            android:label="@string/title_activity_select_supplier"></activity>
+            android:label="@string/title_activity_select_supplier" />
         <activity
             android:name=".MainActivity"
             android:label="@string/welcome_screen_title">

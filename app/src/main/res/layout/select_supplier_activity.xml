@@ -10,9 +10,9 @@
         android:layout_height="match_parent"
         android:text="@string/directions_select_supplier" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/supplierSelector"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
 
 </FrameLayout>

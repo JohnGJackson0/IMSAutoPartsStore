@@ -1,11 +1,7 @@
 package com.ims.main.ui.createorderactivity.createorder;
 
 
-import android.arch.paging.PagedListAdapter;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.util.DiffUtil;
-import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -14,6 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.paging.PagedListAdapter;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ims.main.R;
 import com.ims.model.OrderInventory;
@@ -28,7 +29,7 @@ public class PendingItemOnOrderAdapter extends PagedListAdapter<OrderInventory, 
     private Context mContext;
     private Set<OrderInventory> mUpdatedOrderInventoryItems = new HashSet<>();
 
-    protected PendingItemOnOrderAdapter(Context context) {
+    public PendingItemOnOrderAdapter(Context context) {
         super(DIFF_CALLBACK);
         mContext = context;
     }

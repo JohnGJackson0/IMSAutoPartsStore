@@ -5,13 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+
+    <TextView
+        android:id="@+id/orderNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/partInfo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/supplierNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/warning"
+        app:layout_constraintTop_toBottomOf="@+id/partInfo" />
+
+    <TextView
+        android:id="@+id/partInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/part_info"
+        app:layout_constraintBottom_toTopOf="@+id/supplierNumber"
+        app:layout_constraintTop_toBottomOf="@+id/orderNumber" />
+
+    <TextView
+        android:id="@+id/warning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/example_error"
+        android:textColor="@color/red"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/partNumber"
+        app:layout_constraintTop_toBottomOf="@+id/supplierNumber" />
+
     <TextView
         android:id="@+id/partNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/inventory_part_number"
         app:layout_constraintBottom_toTopOf="@+id/partDescription"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/warning" />
 
     <TextView
         android:id="@+id/partDescription"
@@ -67,38 +100,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/inventory_sales_cost"
-        app:layout_constraintBottom_toTopOf="@+id/pending"
+        app:layout_constraintBottom_toTopOf="@+id/approved"
         app:layout_constraintTop_toBottomOf="@+id/supplier" />
 
     <TextView
-        android:id="@+id/pending"
+        android:id="@+id/approved"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/inventory_pending"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        android:text="@string/approved"
+        app:layout_constraintBottom_toTopOf="@+id/extendedCost"
         app:layout_constraintTop_toBottomOf="@+id/sales" />
 
-    <Button
-        android:id="@+id/approve"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/extendedCost"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/approve_pending"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/reject"
-        app:layout_constraintTop_toBottomOf="@+id/pending" />
+        android:text="@string/example_extended_cost"
+        app:layout_constraintBottom_toTopOf="@+id/quantityOnOrder"
+        app:layout_constraintTop_toBottomOf="@+id/approved" />
 
-    <Button
-        android:id="@+id/reject"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/quantityOnOrder"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/reject_pending"
-        app:layout_constraintEnd_toStartOf="@+id/approve"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pending" />
+        android:text="@string/quantity_on_Order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/extendedCost" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

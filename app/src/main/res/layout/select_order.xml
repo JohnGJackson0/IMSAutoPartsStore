@@ -5,28 +5,25 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/partNumber"
+        android:id="@+id/orderNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/inventory_part_number"
-        app:layout_constraintBottom_toTopOf="@+id/to_order"
+        android:text="@string/example_order_number"
+        app:layout_constraintBottom_toTopOf="@+id/supplierNumber"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/to_order"
+    <TextView
+        android:id="@+id/supplierNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="@string/quantity_to_order"
-        app:layout_constraintBottom_toTopOf="@+id/cost"
-        app:layout_constraintTop_toBottomOf="@+id/partNumber" />
+        android:text="@string/example_supplier"
+        app:layout_constraintBottom_toTopOf="@+id/selectOrder"
+        app:layout_constraintTop_toBottomOf="@+id/orderNumber" />
 
-    <EditText
-        android:id="@+id/cost"
+    <Button
+        android:id="@+id/selectOrder"
+        android:text="@string/select_order_for_finalization_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:hint="@string/extended_cost"
-        app:layout_constraintTop_toBottomOf="@+id/to_order" />
-
+        app:layout_constraintTop_toBottomOf="@+id/supplierNumber" />
 </androidx.constraintlayout.widget.ConstraintLayout>

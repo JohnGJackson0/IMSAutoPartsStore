@@ -1,8 +1,8 @@
 package com.ims.model;
 
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity
 public class Order {
@@ -22,11 +22,33 @@ public class Order {
     @ColumnInfo(name="supplier_number")
     private String supplierNumber;
 
+    //for use in choosing the finalization to be displayed after selection
+    @ColumnInfo(name="on_finalization")
+    private boolean onFinalization;
+
+    @ColumnInfo(name="is_finished")
+    private boolean isFinished;
 
     public Order(String comments, boolean isPending, String supplierNumber) {
         this.comments = comments;
         this.isPending = isPending;
         this.supplierNumber = supplierNumber;
+    }
+
+    public boolean isFinished() {
+        return isFinished;
+    }
+
+    public void setFinished(boolean finished) {
+        isFinished = finished;
+    }
+
+    public boolean isOnFinalization() {
+        return onFinalization;
+    }
+
+    public void setOnFinalization(boolean onFinalization) {
+        this.onFinalization = onFinalization;
     }
 
     public Order() { }

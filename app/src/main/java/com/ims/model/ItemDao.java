@@ -1,15 +1,17 @@
 package com.ims.model;
 
-import android.arch.paging.DataSource;
-import android.arch.persistence.room.Dao;
-import android.arch.persistence.room.Insert;
-import android.arch.persistence.room.OnConflictStrategy;
-import android.arch.persistence.room.Query;
-import android.arch.persistence.room.Update;
+import androidx.paging.DataSource;
+import androidx.room.Dao;
+import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
+import androidx.room.Query;
+import androidx.room.Update;
+
+import java.util.List;
 
 @Dao
 public interface ItemDao {
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Item item);
 
     @Query("SELECT * FROM ITEM ORDER BY PART_NUMBER")
@@ -23,4 +25,7 @@ public interface ItemDao {
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void update(Item item);
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    void updateItems(List<Item> updateList);
 }
