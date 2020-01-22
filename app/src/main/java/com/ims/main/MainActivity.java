@@ -10,13 +10,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.ims.main.ui.createorderactivity.ManageOrdersActivity;
+import com.ims.main.ui.createorder.ManageOrdersActivity;
+import com.ims.main.ui.customers.ViewCustomersFragment;
 import com.ims.main.ui.gatewayactivity.GatewayFragment;
-import com.ims.main.ui.inventoryactivity.ErrorCallback;
-import com.ims.main.ui.inventoryactivity.InventoryFragment;
-import com.ims.main.ui.inventoryactivity.UpdateItemPendingQuantityCallback;
-import com.ims.main.ui.supplieractivity.SupplierFragment;
+import com.ims.main.ui.inventory.ErrorCallback;
+import com.ims.main.ui.inventory.InventoryFragment;
+import com.ims.main.ui.inventory.UpdateItemPendingQuantityCallback;
+import com.ims.main.ui.suppliers.SupplierFragment;
 import com.ims.main.util.Validator;
+import com.ims.model.Customer;
 import com.ims.model.Item;
 import com.ims.model.Supplier;
 
@@ -45,9 +47,15 @@ public class MainActivity extends AppCompatActivity implements ErrorCallback, Up
         Supplier castrol = new Supplier("129F",true,"Castrol","15556 Fake Address Ln US", "Fake Name","FakeEmail@gmail.com","9998756309");;
         Item sample = new Item("12556G157","129F",true,"Castrol GTX 5W-30 HP Motor Oil",15,0, new BigDecimal("15.23"));
         Item sample2 = new Item("12556G158","129F",true,"Castrol GTX 10W-40 HP Motor Oil",10,0, new BigDecimal("19.95"));
+
+        Customer one = new Customer(0L,"Ralph", "Lauren","ralph@gmail.com", "1556 Fake ST FakeCity, Mi 48111","3133133133");
+        Customer two = new Customer(1L,"Not Ralph", "IamNotRalph","notRalph@gmail.com","1556 Fake ST FakeCity, Mi 48111","3133133133");
+
         mViewModel.insertSupplier(castrol);
         mViewModel.insertInventory(sample);
         mViewModel.insertInventory(sample2);
+        mViewModel.insertCustomer(one);
+        mViewModel.insertCustomer(two);
     }
 
     public void openSupplier(View view) {
@@ -107,5 +115,9 @@ public class MainActivity extends AppCompatActivity implements ErrorCallback, Up
         Toast toast= Toast.makeText(this, message,Toast.LENGTH_LONG);
         toast.setMargin(50,50);
         toast.show();
+    }
+
+    public void openCustomers(View view) {
+        replaceFragment(ViewCustomersFragment.newInstance());
     }
 }

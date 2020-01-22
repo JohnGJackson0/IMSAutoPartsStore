@@ -4,6 +4,7 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 
 import com.ims.main.db.AppRepository;
+import com.ims.model.Customer;
 import com.ims.model.Item;
 import com.ims.model.Supplier;
 
@@ -25,5 +26,9 @@ public class MainViewModel extends AndroidViewModel {
 
     protected void updateItem(Item a){
         mRepository.updateItem(a);
+    }
+
+    public void insertCustomer(Customer customer) {
+        mRepository.insertCustomer(customer);
     }
 }

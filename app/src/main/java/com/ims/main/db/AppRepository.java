@@ -5,6 +5,8 @@ import android.app.Application;
 import androidx.lifecycle.LiveData;
 import androidx.paging.DataSource;
 
+import com.ims.model.Customer;
+import com.ims.model.CustomerDao;
 import com.ims.model.Item;
 import com.ims.model.ItemDao;
 import com.ims.model.Order;
@@ -26,6 +28,7 @@ public class AppRepository {
     private OrderDao mOrderDao;
     private OrderInventoryDao mOrderInventoryDao;
     private OrderInventoryAndItemInfoDao mOrderInventoryAndItemInfoDao;
+    private CustomerDao mCustomerDao;
 
     public AppRepository (Application app){
         mItemDao = AppDatabase.getAppDatabase(app).itemDao();
@@ -33,11 +36,16 @@ public class AppRepository {
         mOrderDao = AppDatabase.getAppDatabase(app).orderDao();
         mOrderInventoryDao = AppDatabase.getAppDatabase(app).orderInventoryDao();
         mOrderInventoryAndItemInfoDao = AppDatabase.getAppDatabase(app).orderInventoryAndItemInfoDao();
+        mCustomerDao = AppDatabase.getAppDatabase(app).customerDao();
     }
 
     public DataSource.Factory getAllItems() { return mItemDao.getAllItems(); }
 
     public DataSource.Factory<Integer, Supplier> getAllSuppliers() { return mSupplierDao.getSuppliers(); }
+
+    public DataSource.Factory<Integer,Customer> getCustomers() {
+        return mCustomerDao.getCustomers();
+    }
 
     public DataSource.Factory<Integer,Item> getPendingOrders() { return mItemDao.getPendingOrders(); }
 
@@ -122,5 +130,9 @@ public class AppRepository {
 
     public void removeAllFinalizationOrdersWhereNot(Long orderNumber) {
         mOrderDao.removeAllRecordsFromFinalizationWhereNot(orderNumber);
+    }
+
+    public void insertCustomer(Customer customer) {
+        mCustomerDao.insert(customer);
     }
 }

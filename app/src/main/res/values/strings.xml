@@ -114,4 +114,6 @@
     <string name="error_no_supplier">Choose a Supplier</string>
     <string name="error_choose_a_supplier_or_inventory">Choose supplier or inventory</string>
     <string name="null_order">Select an Order (none currently)</string>
+    <string name="id_prefix">Customer ID:</string>
+    <string name="button_customers">Customers</string>
 </resources>
