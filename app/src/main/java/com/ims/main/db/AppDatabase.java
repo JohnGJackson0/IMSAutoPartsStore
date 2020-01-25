@@ -18,10 +18,12 @@ import com.ims.model.OrderDao;
 import com.ims.model.OrderInventory;
 import com.ims.model.OrderInventoryAndItemInfoDao;
 import com.ims.model.OrderInventoryDao;
+import com.ims.model.SpecialtyOrders;
+import com.ims.model.SpecialtyOrdersDao;
 import com.ims.model.Supplier;
 import com.ims.model.SupplierDao;
 
-@Database(entities = {Item.class, Supplier.class, Order.class, OrderInventory.class, Customer.class}, version = 1)
+@Database(entities = {Item.class, Supplier.class, Order.class, OrderInventory.class, Customer.class, SpecialtyOrders.class}, version = 1)
 @TypeConverters({DateConverter.class, BigDecimalConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE;
@@ -31,6 +33,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract OrderInventoryDao orderInventoryDao();
     public abstract OrderInventoryAndItemInfoDao orderInventoryAndItemInfoDao();
     public abstract CustomerDao customerDao();
+    public abstract SpecialtyOrdersDao specialtyOrdersDao();
 
     protected static AppDatabase getAppDatabase(Context context) {
         if (INSTANCE == null) {

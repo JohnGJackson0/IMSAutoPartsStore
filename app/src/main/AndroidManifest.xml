@@ -9,16 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.createorder.orderfinalization.selectorder.SelectOrderActivity"
-            android:label="@string/title_activity_select_finalize_order"></activity>
+        <activity android:name=".ui.order.selectcustomer.SelectCustomerActivity"></activity>
         <activity
-            android:name=".ui.createorder.ManageOrdersActivity"
+            android:name=".ui.order.specialtyorders.SpecialtyOrdersActivity"
+            android:label="@string/title_activity_specialty_orders"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.order.selectorder.SelectOrderActivity"
+            android:label="@string/title_activity_select_finalize_order" />
+        <activity
+            android:name=".ui.order.createorder.ManageOrdersActivity"
             android:label="@string/title_activity_create_order" />
         <activity
-            android:name=".ui.createorder.createorder.selectapprovedinventory.SelectApprovalInventoryActivity"
+            android:name=".ui.order.createorder.selectapprovedinventory.SelectApprovalInventoryActivity"
             android:label="@string/title_activity_select_approved" />
         <activity
-            android:name=".ui.createorder.createorder.selectsupplier.SelectSupplierActivity"
+            android:name=".ui.order.createorder.selectsupplier.SelectSupplierActivity"
             android:label="@string/title_activity_select_supplier" />
         <activity
             android:name=".MainActivity"

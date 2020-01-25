@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/container"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ui.order.specialtyorders.SpecialtyOrdersActivity"
+    tools:showIn="@layout/specialty_orders_activity">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/introduction_specialty_orders"
+        app:layout_constraintBottom_toTopOf="@+id/orderInfo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/orderInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/no_current_order_selected"
+        app:layout_constraintBottom_toTopOf="@+id/selectOrder"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Button
+        android:id="@+id/selectOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_order"
+        app:layout_constraintBottom_toTopOf="@+id/customerInfo"
+        app:layout_constraintTop_toBottomOf="@+id/orderInfo" />
+
+    <TextView
+        android:id="@+id/customerInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/no_current_customer_selected"
+        app:layout_constraintBottom_toTopOf="@+id/selectCustomer"
+        app:layout_constraintTop_toBottomOf="@+id/selectOrder" />
+
+    <Button
+        android:id="@+id/selectCustomer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_customer"
+        app:layout_constraintBottom_toTopOf="@+id/finalizeButton"
+        app:layout_constraintTop_toBottomOf="@+id/customerInfo" />
+
+    <Button
+        android:id="@+id/finalizeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/finalize"
+        app:layout_constraintBottom_toTopOf="@+id/infoOrder"
+        app:layout_constraintTop_toBottomOf="@+id/selectCustomer" />
+
+    <TextView
+        android:id="@+id/infoOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/infoCustomer"
+        app:layout_constraintTop_toBottomOf="@+id/finalizeButton" />
+
+    <TextView
+        android:id="@+id/infoCustomer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/infoOrder" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

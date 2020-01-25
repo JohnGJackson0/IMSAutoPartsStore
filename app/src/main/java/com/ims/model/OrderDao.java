@@ -39,6 +39,9 @@ public interface OrderDao {
     @Query("SELECT * FROM 'ORDER' WHERE on_finalization = 1 LIMIT 1")
     LiveData<Order> getCurrentFinalizationOrder();
 
+    @Query("SELECT * FROM 'ORDER' WHERE on_specialty = 1 LIMIT 1")
+    LiveData<Order> getCurrentSpecialtyOrder();
+
     @Query("SELECT * FROM 'ORDER' WHERE is_pending = 0 AND is_finished = 0")
     DataSource.Factory<Integer,Order> getEligibleOrdersForFinalization();
 
@@ -48,4 +51,15 @@ public interface OrderDao {
     @Query("UPDATE 'ORDER' SET on_finalization = 0 WHERE NOT ORDER_NUMBER = :orderNumber")
     void removeAllRecordsFromFinalizationWhereNot(Long orderNumber);
 
+    @Query("SELECT * FROM 'ORDER' WHERE is_finished = 1")
+    DataSource.Factory<Integer, Order> getFinishedOrders();
+
+    @Query("UPDATE 'ORDER' SET on_specialty = 0 WHERE NOT ORDER_NUMBER = :orderNumber")
+    void removeAllRecordsFromSpecialtyWhereNot(long orderNumber);
+
+    @Query("UPDATE 'ORDER' SET on_specialty = 1 WHERE ORDER_NUMBER = :orderNumber")
+    void setOnSpecialtyOrder(long orderNumber);
+
+    @Query("UPDATE 'ORDER' SET on_specialty = 0")
+    void removeAllSpecialtyOrders();
 }

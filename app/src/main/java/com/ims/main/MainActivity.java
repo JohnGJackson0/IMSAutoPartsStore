@@ -10,12 +10,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.ims.main.ui.createorder.ManageOrdersActivity;
+import com.ims.main.ui.order.createorder.ManageOrdersActivity;
 import com.ims.main.ui.customers.ViewCustomersFragment;
 import com.ims.main.ui.gatewayactivity.GatewayFragment;
 import com.ims.main.ui.inventory.ErrorCallback;
 import com.ims.main.ui.inventory.InventoryFragment;
 import com.ims.main.ui.inventory.UpdateItemPendingQuantityCallback;
+import com.ims.main.ui.order.specialtyorders.SpecialtyOrdersActivity;
 import com.ims.main.ui.suppliers.SupplierFragment;
 import com.ims.main.util.Validator;
 import com.ims.model.Customer;
@@ -119,5 +120,10 @@ public class MainActivity extends AppCompatActivity implements ErrorCallback, Up
 
     public void openCustomers(View view) {
         replaceFragment(ViewCustomersFragment.newInstance());
+    }
+
+    public void openSpecialtyOrders(View view) {
+        Intent intent = new Intent(MainActivity.this, SpecialtyOrdersActivity.class);
+        MainActivity.this.startActivity(intent);
     }
 }

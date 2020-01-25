@@ -15,6 +15,8 @@ import com.ims.model.OrderInventory;
 import com.ims.model.OrderInventoryAndItemInfo;
 import com.ims.model.OrderInventoryAndItemInfoDao;
 import com.ims.model.OrderInventoryDao;
+import com.ims.model.SpecialtyOrders;
+import com.ims.model.SpecialtyOrdersDao;
 import com.ims.model.Supplier;
 import com.ims.model.SupplierDao;
 
@@ -29,6 +31,7 @@ public class AppRepository {
     private OrderInventoryDao mOrderInventoryDao;
     private OrderInventoryAndItemInfoDao mOrderInventoryAndItemInfoDao;
     private CustomerDao mCustomerDao;
+    private SpecialtyOrdersDao mSpecialtyOrdersDao;
 
     public AppRepository (Application app){
         mItemDao = AppDatabase.getAppDatabase(app).itemDao();
@@ -37,6 +40,7 @@ public class AppRepository {
         mOrderInventoryDao = AppDatabase.getAppDatabase(app).orderInventoryDao();
         mOrderInventoryAndItemInfoDao = AppDatabase.getAppDatabase(app).orderInventoryAndItemInfoDao();
         mCustomerDao = AppDatabase.getAppDatabase(app).customerDao();
+        mSpecialtyOrdersDao = AppDatabase.getAppDatabase(app).specialtyOrdersDao();
     }
 
     public DataSource.Factory getAllItems() { return mItemDao.getAllItems(); }
@@ -59,6 +63,10 @@ public class AppRepository {
     }
     public DataSource.Factory getAllOrdersInFinalizationState() {
         return mOrderDao.getEligibleOrdersForFinalization();
+    }
+
+    public DataSource.Factory<Integer,Order> getAllFinishedOrders() {
+        return mOrderDao.getFinishedOrders();
     }
 
     public void updateItems(List<Item> updateList) {
@@ -124,6 +132,9 @@ public class AppRepository {
         return mOrderDao.getCurrentFinalizationOrder();
     }
 
+    public LiveData<Order> getCurrentSpecialtyOrder() {
+        return mOrderDao.getCurrentSpecialtyOrder();
+    }
     public void deleteOrder(Order order) {
         mOrderDao.deleteOrder(order);
     }
@@ -134,5 +145,31 @@ public class AppRepository {
 
     public void insertCustomer(Customer customer) {
         mCustomerDao.insert(customer);
+    }
+
+    public void setOnSpecialtyOrder(long orderNumber) {
+        // We need a specific query because we don't know which query will finish first
+        // as they are in background threads. If the first query finished last it wont
+        // effect the second.
+        mOrderDao.removeAllRecordsFromSpecialtyWhereNot(orderNumber);
+        mOrderDao.setOnSpecialtyOrder(orderNumber);
+    }
+
+    public void setOnSpecialtyCustomer(long customerNumber){
+        mCustomerDao.setOnSpecialtyCustomer(customerNumber);
+        mCustomerDao.removeAllRecordsFromSpecialtyWhereNot(customerNumber);
+    }
+
+    public LiveData<Customer> getCurrentSpecialtyCustomer() {
+        return mCustomerDao.getCurrentSpecialtyCustomer();
+    }
+
+    public void insertSpecialtyOrder(SpecialtyOrders order){
+        mSpecialtyOrdersDao.insert(order);
+    }
+
+    public void removeAllSpecialtyOrdersAndCustomers() {
+        mOrderDao.removeAllSpecialtyOrders();
+        mCustomerDao.removeAllSpecialtyCustomers();
     }
 }

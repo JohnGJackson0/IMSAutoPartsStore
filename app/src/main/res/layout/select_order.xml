@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <!-- Warning: This xml file is being used for both specialty orders and order finalization  -->
+
     <TextView
         android:id="@+id/orderNumber"
         android:layout_width="match_parent"

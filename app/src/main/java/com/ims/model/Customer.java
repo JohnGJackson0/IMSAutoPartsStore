@@ -23,6 +23,9 @@ public class Customer {
     @ColumnInfo(name="phone_number")
     private String phoneNumber;
 
+    @ColumnInfo(name="on_specialty")
+    private boolean onSpecialty;
+
     public Customer(Long id, String firstName, String lastName, String email, String address, String phoneNumber) {
         this.id=id;
         this.firstName = firstName;
@@ -30,6 +33,14 @@ public class Customer {
         this.email = email;
         this.address = address;
         this.phoneNumber = phoneNumber;
+    }
+
+    public boolean isOnSpecialty() {
+        return onSpecialty;
+    }
+
+    public void setOnSpecialty(boolean onSpecialty) {
+        this.onSpecialty = onSpecialty;
     }
 
     public long getId() {

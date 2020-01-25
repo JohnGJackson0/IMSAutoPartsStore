@@ -116,4 +116,21 @@
     <string name="null_order">Select an Order (none currently)</string>
     <string name="id_prefix">Customer ID:</string>
     <string name="button_customers">Customers</string>
+    <string name="title_activity_specialty_orders">Create Specialty Orders</string>
+    <string name="button_specialty_orders">Specialty Orders</string>
+    <string name="introduction_specialty_orders">Match a customer to a previous purchase order.</string>
+    <string name="no_current_order_selected">Select an Order</string>
+    <string name="no_current_customer_selected">Select Customer for Order</string>
+    <string name="select_order">Select Order</string>
+    <string name="select_customer">Select Customer For Order</string>
+    <string name="finalize">Finalize Specialty Purchase Order</string>
+    <string name="error_state">Activity cannot find STATE</string>
+    <string name="prefix_order_info">Current Order Selection is order number:</string>
+    <string name="prefix_customer_id">Customer ID:</string>
+    <string name="prefix_customer_name">Customer Name:</string>
+    <string name="prefix_customer_email">Email:</string>
+    <string name="prefix_customer_phone_number">Phone Number:</string>
+    <string name="prefix_customer_address">Customer Address</string>
+    <string name="prefix_current_customer">Current Customer ID:</string>
+    <string name="error_not_valid_specialty">Either Customer Or Order is not Selected.</string>
 </resources>

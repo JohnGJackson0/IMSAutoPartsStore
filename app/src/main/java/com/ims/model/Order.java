@@ -29,10 +29,21 @@ public class Order {
     @ColumnInfo(name="is_finished")
     private boolean isFinished;
 
+    @ColumnInfo(name="on_specialty")
+    private boolean onSpecialty;
+
     public Order(String comments, boolean isPending, String supplierNumber) {
         this.comments = comments;
         this.isPending = isPending;
         this.supplierNumber = supplierNumber;
+    }
+
+    public boolean isOnSpecialty() {
+        return onSpecialty;
+    }
+
+    public void setOnSpecialty(boolean onSpecialty) {
+        this.onSpecialty = onSpecialty;
     }
 
     public boolean isFinished() {
