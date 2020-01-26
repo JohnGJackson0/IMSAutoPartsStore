@@ -11,20 +11,20 @@ import com.ims.model.Supplier;
 public class MainViewModel extends AndroidViewModel {
     private AppRepository mRepository;
 
-    protected MainViewModel(Application app) {
+    public MainViewModel(Application app) {
         super(app);
         mRepository = new AppRepository(app);
     }
 
-    protected void insertSupplier(Supplier a) {
+    public void insertSupplier(Supplier a) {
         mRepository.insertSupplier(a);
     }
 
-    protected void insertInventory(Item a) {
+    public void insertInventory(Item a) {
         mRepository.insertItem(a);
     }
 
-    protected void updateItem(Item a){
+    public void updateItem(Item a){
         mRepository.updateItem(a);
     }
 

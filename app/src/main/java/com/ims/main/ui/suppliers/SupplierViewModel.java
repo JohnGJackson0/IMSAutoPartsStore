@@ -12,12 +12,12 @@ public class SupplierViewModel extends AndroidViewModel {
     private LiveData<PagedList<Supplier>> supplier;
     private AppRepository mRepository;
 
-    protected SupplierViewModel(Application app) {
+    public SupplierViewModel(Application app) {
         super(app);
         mRepository = new AppRepository(app);
     }
 
-    protected LiveData<PagedList<Supplier>> getAllSuppliers() {
+    public LiveData<PagedList<Supplier>> getAllSuppliers() {
         supplier = new LivePagedListBuilder<>(
                 mRepository.getAllSuppliers(), 15)
                 .build();

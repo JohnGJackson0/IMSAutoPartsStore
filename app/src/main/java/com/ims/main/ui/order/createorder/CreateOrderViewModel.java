@@ -29,7 +29,7 @@ public class CreateOrderViewModel extends AndroidViewModel {
         return mRepository.getNewestOrder();
     }
 
-    protected LiveData<PagedList<OrderInventory>> getAllPendingInventoryOrders() {
+    public LiveData<PagedList<OrderInventory>> getAllPendingInventoryOrders() {
         mOrderInventory = new LivePagedListBuilder<>(
                 mRepository.getPendingInventoryOrders(), 15)
                 .build();

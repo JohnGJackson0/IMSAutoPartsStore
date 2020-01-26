@@ -14,22 +14,22 @@ public class SelectSupplierViewModel extends AndroidViewModel {
     private LiveData<PagedList<Supplier>> supplier;
     private AppRepository mRepository;
 
-    protected SelectSupplierViewModel(Application app) {
+    public SelectSupplierViewModel(Application app) {
         super(app);
         mRepository = new AppRepository(app);
     }
 
-    protected LiveData<PagedList<Supplier>> getAllSuppliers() {
+    public LiveData<PagedList<Supplier>> getAllSuppliers() {
         supplier = new LivePagedListBuilder<>(
                 mRepository.getAllSuppliers(), 15)
                 .build();
         return supplier;
     }
-    protected LiveData<Order> getNewestOrder(){
+    public LiveData<Order> getNewestOrder(){
         return mRepository.getNewestOrder();
     }
 
-    protected void updateOrder(Order a){
+    public void updateOrder(Order a){
         mRepository.updateOrder(a);
     }
 }

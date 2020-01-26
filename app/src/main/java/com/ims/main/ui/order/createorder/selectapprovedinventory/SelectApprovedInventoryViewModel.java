@@ -15,19 +15,19 @@ public class SelectApprovedInventoryViewModel extends AndroidViewModel {
     private LiveData<PagedList<Item>> items;
     private AppRepository mRepository;
 
-    protected SelectApprovedInventoryViewModel(Application app){
+    public SelectApprovedInventoryViewModel(Application app){
         super(app);
         mRepository = new AppRepository(app);
     }
 
-    protected LiveData<PagedList<Item>> getApprovedItems() {
+    public LiveData<PagedList<Item>> getApprovedItems() {
         items = new LivePagedListBuilder<>(
                 mRepository.getApprovedItems(),15)
                 .build();
         return items;
     }
 
-    protected void insertOrderInventory(OrderInventory order){
+    public void insertOrderInventory(OrderInventory order){
         mRepository.insertOrderInventory(order);
     }
 

@@ -17,7 +17,7 @@ public class InventoryViewModel extends AndroidViewModel {
         mRepository = new AppRepository(application);
     }
 
-    protected LiveData<PagedList<Item>> getAllItems() {
+    public LiveData<PagedList<Item>> getAllItems() {
         items = new LivePagedListBuilder<>(
                 mRepository.getAllItems(), 15)
                 .build();
