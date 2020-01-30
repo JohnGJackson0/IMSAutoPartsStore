@@ -15,6 +15,12 @@ import com.ims.model.OrderInventory;
 import com.ims.model.OrderInventoryAndItemInfo;
 import com.ims.model.OrderInventoryAndItemInfoDao;
 import com.ims.model.OrderInventoryDao;
+import com.ims.model.Sale;
+import com.ims.model.SaleAndSaleInventory;
+import com.ims.model.SaleAndSaleInventoryDao;
+import com.ims.model.SaleDao;
+import com.ims.model.SaleInventory;
+import com.ims.model.SaleInventoryDao;
 import com.ims.model.SpecialtyOrders;
 import com.ims.model.SpecialtyOrdersDao;
 import com.ims.model.Supplier;
@@ -32,6 +38,9 @@ public class AppRepository {
     private OrderInventoryAndItemInfoDao mOrderInventoryAndItemInfoDao;
     private CustomerDao mCustomerDao;
     private SpecialtyOrdersDao mSpecialtyOrdersDao;
+    private SaleDao mSaleDao;
+    private SaleInventoryDao mSaleInventoryDao;
+    private SaleAndSaleInventoryDao mSaleAndSaleInventoryDao;
 
     public AppRepository (Application app){
         mItemDao = AppDatabase.getAppDatabase(app).itemDao();
@@ -41,6 +50,9 @@ public class AppRepository {
         mOrderInventoryAndItemInfoDao = AppDatabase.getAppDatabase(app).orderInventoryAndItemInfoDao();
         mCustomerDao = AppDatabase.getAppDatabase(app).customerDao();
         mSpecialtyOrdersDao = AppDatabase.getAppDatabase(app).specialtyOrdersDao();
+        mSaleDao = AppDatabase.getAppDatabase(app).saleDao();
+        mSaleInventoryDao = AppDatabase.getAppDatabase(app).saleInventoryDao();
+        mSaleAndSaleInventoryDao = AppDatabase.getAppDatabase(app).SaleAndSaleInventoryDao();
     }
 
     public DataSource.Factory getAllItems() { return mItemDao.getAllItems(); }
@@ -55,9 +67,19 @@ public class AppRepository {
 
     public DataSource.Factory<Integer, OrderInventory> getPendingInventoryOrders() {return mOrderInventoryDao.getPendingInventoryOrders();}
 
+    public DataSource.Factory<Integer, SaleInventory> getSaleInventories(long id) {return mSaleInventoryDao.getSaleInventories(id);}
+
     public DataSource.Factory<Integer, OrderInventoryAndItemInfo> getOrderInventoryAndItemData(Long orderNumber){
         return mOrderInventoryAndItemInfoDao.getItemAndItemInfoFromOrderPaged(orderNumber);
     }
+    public DataSource.Factory<Integer, SaleAndSaleInventory> getSaleAndInventory(long saleNumber){
+        return mSaleAndSaleInventoryDao.getSaleAndSaleInventory(saleNumber);
+    }
+
+    public DataSource.Factory<Integer, Sale> getAllSales() {
+        return mSaleDao.getSales();
+    }
+
     public DataSource.Factory<Integer,Item> getApprovedItems(){
         return mItemDao.getApprovedItems();
     }
@@ -147,6 +169,14 @@ public class AppRepository {
         mCustomerDao.insert(customer);
     }
 
+    public void insertSale(Sale sale) {
+        mSaleDao.insert(sale);
+    }
+
+    public void insertSaleInventory(SaleInventory saleInventory) {
+        mSaleInventoryDao.insert(saleInventory);
+    }
+
     public void setOnSpecialtyOrder(long orderNumber) {
         // We need a specific query because we don't know which query will finish first
         // as they are in background threads. If the first query finished last it wont
@@ -172,4 +202,21 @@ public class AppRepository {
         mOrderDao.removeAllSpecialtyOrders();
         mCustomerDao.removeAllSpecialtyCustomers();
     }
+    public void insertSaleInventories(List<SaleInventory> mSaleInventory) {
+        mSaleInventoryDao.insertInventories(mSaleInventory);
+    }
+
+    public void removeSaleInventories() {
+        mSaleInventoryDao.removeSaleInventories();
+    }
+
+    public LiveData<Sale> getCurrentSale() {
+        return mSaleDao.getCurrentSale();
+    }
+
+    public void setSale(Long saleNumber) {
+        mSaleDao.removeAllRecordsFromOnSaleWhereNot(saleNumber);
+        mSaleDao.setSale(saleNumber);
+    }
+
 }

@@ -116,4 +116,25 @@
         app:layout_constraintStart_toStartOf="@+id/specialtyOrders"
         app:layout_constraintTop_toBottomOf="@+id/specialtyOrders" />
 
+    <ImageButton
+        android:id="@+id/sales"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="openSales"
+        app:layout_constraintEnd_toEndOf="@+id/customers"
+        app:layout_constraintStart_toStartOf="@+id/customers"
+        app:layout_constraintTop_toBottomOf="@+id/customersCaption"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/salesCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/sales_caption"
+        app:layout_constraintEnd_toEndOf="@+id/sales"
+        app:layout_constraintStart_toStartOf="@+id/sales"
+        app:layout_constraintTop_toBottomOf="@+id/sales" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

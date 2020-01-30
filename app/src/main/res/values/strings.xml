@@ -133,4 +133,22 @@
     <string name="prefix_customer_address">Customer Address</string>
     <string name="prefix_current_customer">Current Customer ID:</string>
     <string name="error_not_valid_specialty">Either Customer Or Order is not Selected.</string>
+    <string name="total">Total:</string>
+    <string name="sale_id">Sale ID:</string>
+    <string name="customer_number">Customer:</string>
+    <string name="title_activity_select_sale">SelectSaleActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sales_caption">Sales</string>
+    <string name="select_sale_to_view">Select Sale to View</string>
+    <string name="select_sale">Select Sale</string>
+    <string name="prefix_sale_id">Sale ID:</string>
+    <string name="prefix_customer_number">Customer Number:</string>
+    <string name="prefix_sale_price">Sale Price:</string>
+    <string name="prefix_total_order">Total Order:</string>
+    <string name="prefix_line">Line:</string>
+    <string name="prefix_part">Part:</string>
+    <string name="prefix_amount">Total Amount:</string>
+    <string name="prefix_sale_amount">Sale Amount:</string>
 </resources>

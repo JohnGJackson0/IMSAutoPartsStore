@@ -1,0 +1,48 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ims.main.ui.sales.SalesFragment">
+
+    <Button
+        android:id="@+id/selectSale"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_sale_to_view"
+        app:layout_constraintBottom_toTopOf="@+id/saleId"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/saleId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/customerNumber"
+        app:layout_constraintTop_toBottomOf="@+id/selectSale" />
+
+    <TextView
+        android:id="@+id/customerNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/soldFor"
+        app:layout_constraintTop_toBottomOf="@+id/saleId" />
+
+    <TextView
+        android:id="@+id/soldFor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/saleInventoriesRV"
+        app:layout_constraintTop_toBottomOf="@+id/customerNumber" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/saleInventoriesRV"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/soldFor"></androidx.recyclerview.widget.RecyclerView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,20 +10,26 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.ims.main.ui.order.createorder.ManageOrdersActivity;
 import com.ims.main.ui.customers.ViewCustomersFragment;
 import com.ims.main.ui.gatewayactivity.GatewayFragment;
 import com.ims.main.ui.inventory.ErrorCallback;
 import com.ims.main.ui.inventory.InventoryFragment;
 import com.ims.main.ui.inventory.UpdateItemPendingQuantityCallback;
+import com.ims.main.ui.order.createorder.ManageOrdersActivity;
 import com.ims.main.ui.order.specialtyorders.SpecialtyOrdersActivity;
+import com.ims.main.ui.sales.SalesFragment;
 import com.ims.main.ui.suppliers.SupplierFragment;
 import com.ims.main.util.Validator;
 import com.ims.model.Customer;
 import com.ims.model.Item;
+import com.ims.model.Sale;
+import com.ims.model.SaleInventory;
 import com.ims.model.Supplier;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ErrorCallback, UpdateItemPendingQuantityCallback {
     private Bundle mSavedInstantState;
@@ -42,16 +48,30 @@ public class MainActivity extends AppCompatActivity implements ErrorCallback, Up
                     .commitNow();
         }
 
-        //to be replaced with api or internal app functions from user depending on answers to project requirements
+
+        //this is raw data to be retrieved from server
+
         mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 
         Supplier castrol = new Supplier("129F",true,"Castrol","15556 Fake Address Ln US", "Fake Name","FakeEmail@gmail.com","9998756309");;
         Item sample = new Item("12556G157","129F",true,"Castrol GTX 5W-30 HP Motor Oil",15,0, new BigDecimal("15.23"));
         Item sample2 = new Item("12556G158","129F",true,"Castrol GTX 10W-40 HP Motor Oil",10,0, new BigDecimal("19.95"));
-
         Customer one = new Customer(0L,"Ralph", "Lauren","ralph@gmail.com", "1556 Fake ST FakeCity, Mi 48111","3133133133");
         Customer two = new Customer(1L,"Not Ralph", "IamNotRalph","notRalph@gmail.com","1556 Fake ST FakeCity, Mi 48111","3133133133");
+        mViewModel.removeSaleInventories();
 
+        List<SaleInventory> saleList = new ArrayList<>();
+        Sale saleOne = new Sale(0L, new Date().getTime(),new BigDecimal(66.32));
+        Sale saleTwo = new Sale(1L,new Date().getTime(),new BigDecimal(45.88));
+
+        saleList.add(new SaleInventory(0L, new BigDecimal("10.22"), "12556G157",5));
+        saleList.add(new SaleInventory(0L, new BigDecimal("15.22"), "12556G158",1));
+        saleList.add(new SaleInventory(1L, new BigDecimal("10.22"), "12556G157",3));
+        saleList.add(new SaleInventory(1L, new BigDecimal("15.22"), "12556G157",1));
+
+        mViewModel.insertSale(saleOne);
+        mViewModel.insertSale(saleTwo);
+        mViewModel.insertSaleInventories(saleList);
         mViewModel.insertSupplier(castrol);
         mViewModel.insertInventory(sample);
         mViewModel.insertInventory(sample2);
@@ -71,6 +91,8 @@ public class MainActivity extends AppCompatActivity implements ErrorCallback, Up
         Intent intent = new Intent(MainActivity.this, ManageOrdersActivity.class);
         MainActivity.this.startActivity(intent);
     }
+
+    public void openSales(View view) { replaceFragment(SalesFragment.newInstance()); }
 
     private void replaceFragment (Fragment fragment){
         if (!isInBackStack(fragment)){
