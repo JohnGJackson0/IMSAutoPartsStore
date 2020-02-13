@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -8,48 +9,42 @@
         android:id="@+id/partDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/supplier_name"
-        app:layout_constraintBottom_toTopOf="@+id/phone"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/supplier_name"/>
 
     <TextView
         android:id="@+id/id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/supplier_id"
-        app:layout_constraintBottom_toTopOf="@+id/address"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
+        android:text="@string/supplier_id" />
 
     <TextView
         android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/supplier_address"
-        app:layout_constraintBottom_toTopOf="@+id/contact"
-        app:layout_constraintTop_toBottomOf="@+id/id" />
+        android:text="@string/supplier_address" />
 
     <TextView
         android:id="@+id/contact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/supplier_contact"
-        app:layout_constraintBottom_toTopOf="@+id/email"
-        app:layout_constraintTop_toBottomOf="@+id/address" />
+        android:text="@string/supplier_contact" />
 
     <TextView
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/supplier_email"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact" />
+        android:text="@string/supplier_email"/>
 
     <TextView
         android:id="@+id/phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/supplier_phone"
-        app:layout_constraintBottom_toTopOf="@+id/id"
-        app:layout_constraintTop_toBottomOf="@+id/partDescription" />
+        android:text="@string/supplier_phone" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_supplier"
+        android:onClick="openEditSupplier"/>
+
+</LinearLayout>

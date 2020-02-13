@@ -18,7 +18,6 @@ public class SelectSaleActivity extends AppCompatActivity implements SelectSaleA
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_sale);
         mViewModel = ViewModelProviders.of(this).get(SelectSaleViewModel.class);
-
         createRv();
     }
 

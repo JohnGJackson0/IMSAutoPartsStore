@@ -12,8 +12,9 @@
         <activity
             android:name=".ui.selectsale.SelectSaleActivity"
             android:label="@string/title_activity_select_sale"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ui.order.selectcustomer.SelectCustomerActivity" />
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.order.selectcustomer.SelectCustomerActivity"
+            android:label="@string/title_activity_select_customer"/>
         <activity
             android:name=".ui.order.specialtyorders.SpecialtyOrdersActivity"
             android:label="@string/title_activity_specialty_orders"

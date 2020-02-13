@@ -136,7 +136,7 @@
     <string name="total">Total:</string>
     <string name="sale_id">Sale ID:</string>
     <string name="customer_number">Customer:</string>
-    <string name="title_activity_select_sale">SelectSaleActivity</string>
+    <string name="title_activity_select_sale">Select Sale</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -151,4 +151,16 @@
     <string name="prefix_part">Part:</string>
     <string name="prefix_amount">Total Amount:</string>
     <string name="prefix_sale_amount">Sale Amount:</string>
+    <string name="prototype_not_implemented">Prototype Not Implemented</string>
+    <string name="on_hand_change">On Hand Change</string>
+    <string name="on_hand_request">Edit Inventory</string>
+    <string name="title_activity_sa">sa</string>
+    <string name="title_activity_example">example</string>
+    <string name="title_activity_ex">ex</string>
+    <string name="scan_item">Scan For Item</string>
+    <string name="edit_supplier">Edit Supplier</string>
+    <string name="edit_customer">Edit Customer</string>
+    <string name="search_customer">Search Customer</string>
+    <string name="title_activity_select_customer">Select Customer</string>
+    <string name="search_supplier">Search for Supplier</string>
 </resources>

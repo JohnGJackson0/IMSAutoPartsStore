@@ -148,4 +148,40 @@ public class MainActivity extends AppCompatActivity implements ErrorCallback, Up
         Intent intent = new Intent(MainActivity.this, SpecialtyOrdersActivity.class);
         MainActivity.this.startActivity(intent);
     }
+
+    public void openCosts(View view) {
+        Toast.makeText(this,getResources().getString(R.string.prototype_not_implemented),Toast.LENGTH_LONG).show();
+    }
+
+    public void openOnHand(View view) {
+        Toast.makeText(this,getResources().getString(R.string.prototype_not_implemented),Toast.LENGTH_LONG).show();
+    }
+
+    public void openCreateInventory(View view) {
+        Toast.makeText(this,getResources().getString(R.string.prototype_not_implemented),Toast.LENGTH_LONG).show();
+    }
+
+    public void scanSearch(View view) {
+        Toast.makeText(this,getResources().getString(R.string.prototype_not_implemented),Toast.LENGTH_LONG).show();
+    }
+
+    public void openEditSupplier(View view) {
+        Toast.makeText(this,getResources().getString(R.string.prototype_not_implemented),Toast.LENGTH_LONG).show();
+    }
+
+    public void openCreateSupplier(View view) {
+        Toast.makeText(this,getResources().getString(R.string.prototype_not_implemented),Toast.LENGTH_LONG).show();
+    }
+
+    public void editCustomer(View view) {
+        Toast.makeText(this,getResources().getString(R.string.prototype_not_implemented),Toast.LENGTH_LONG).show();
+    }
+
+    public void searchCustomer(View view) {
+        Toast.makeText(this,getResources().getString(R.string.prototype_not_implemented),Toast.LENGTH_LONG).show();
+    }
+
+    public void searchSupplier(View view) {
+        Toast.makeText(this,getResources().getString(R.string.prototype_not_implemented),Toast.LENGTH_LONG).show();
+    }
 }
